@@ -28,7 +28,7 @@ class SocietyController extends Controller
         $society = Society::create([
             'name' => $request->name,
             'id_card_number' => $request->id_card_number,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->password),
             'born_date' => $request->born_date,
             'gender' => $request->gender,
             'address' => $request->address,

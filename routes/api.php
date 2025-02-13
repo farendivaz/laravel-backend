@@ -26,9 +26,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware(['auth:api'])->group(function () {
+    Route::get('/validations', [ValidationController::class, 'index']);
     Route::post('/validations/{validation}', [ValidationController::class, 'update']);
-    // Route::get('/validations', [ValidationController::class, 'index']);
 });
+
+Route::get('/job-categories', [ValidationController::class, 'job']);
+
+
 
 Route::prefix('society')->group(function () {
     Route::post('/register', [SocietyController::class, 'register']);

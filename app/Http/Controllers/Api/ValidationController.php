@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\JobCategory;
 use App\Models\Validation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,6 +19,16 @@ class ValidationController extends Controller
             'success' => true,
             'data' => $validations
         ]);
+    }
+
+    public function job(){
+        $jobs = JobCategory::all();
+
+        return response()->json([
+            'success' => true,
+            'data' => $jobs
+        ]);
+
     }
     public function store(Request $request)
     {

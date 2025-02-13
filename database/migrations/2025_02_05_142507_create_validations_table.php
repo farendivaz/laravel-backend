@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('job_category_id')->constrained('job_categories');
             $table->foreignId('society_id')->constrained('societies');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->nullable();
             $table->enum('status', ['accepted', 'declined', 'pending'])->default('pending');
             $table->text('work_experience');
             $table->text('job_position');

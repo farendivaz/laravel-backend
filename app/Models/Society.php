@@ -57,4 +57,8 @@ class Society extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function validations(){
+        return $this->belongsTo(Validation::class);
+    }
 }
